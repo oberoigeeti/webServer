@@ -32,6 +32,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "hello!")
 }
 func main() {
+
+	// looks for index.html in the directory
 	fileServer := http.FileServer(http.Dir("./static"))
 
 	http.Handle("/", fileServer)
