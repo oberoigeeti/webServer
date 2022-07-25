@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+// this function takes in the name & address and shows it on the web server at port: 8080
 func formHandler(w http.ResponseWriter, r *http.Request) {
 	if err := r.ParseForm(); err != nil {
 		fmt.Fprintf(w, "ParseForm() err: %v", err)
@@ -18,6 +19,7 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "address: %s\n", address)
 }
 
+// this function prints hello
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/hello" {
 		http.Error(w, "404 not found", http.StatusNotFound)
